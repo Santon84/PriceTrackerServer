@@ -39,6 +39,9 @@ app.get('/about', (req, res) => res.status(200).send('About page'));
 
 function hello() {
     console.log('hello node');
+    setTimeout(()=> {
+        console.log('Timer hello')
+    }, 1000);
     console.log(process.env.RAPIDAPI_KEY);
 }
 
@@ -47,6 +50,7 @@ function logger(req, res, next) {
     console.log('new connection');
     console.log(req.originalUrl);
     console.log(req.ip);
+    hello();
     next();
 }
 
@@ -57,4 +61,4 @@ app.listen(PORT, function(err){
     console.log("Server listening on Port", PORT);
 })
 
-getList();
+//getList();
