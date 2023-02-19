@@ -36,11 +36,14 @@ const targetTags =  {
 app.get('/', (req, res) => res.status(200).send('Home page'));
 app.get('/about', (req, res) => res.status(200).send('About page'));
 
-
+function hello() {
+    console.log('hello node');
+}
 
 
 console.log('Server started');
-getList();
+//getList();
+hello();
 app.listen(PORT, function(err){
     if (err) console.log("Error in server setup")
     console.log("Server listening on Port", PORT);
