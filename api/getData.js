@@ -16,6 +16,7 @@ async function getProductsList() {
     const products = toDoSnapshot.docs.map(doc => {
         return ({...doc.data(), id: doc.id})
     } );
+    console.log('products')
     console.log(products);
     return products;
     
