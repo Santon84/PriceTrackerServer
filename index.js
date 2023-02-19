@@ -13,25 +13,30 @@ const targetTags =  {
 
   async function getList() {
     console.log('getting list');
-    let productList = await getProductsList().then(res => res);
+    //let productList = await getProductsList().then(res => res);
     
-    console.log(productList);
-    for (let product of productList) {
-      
-      let productPrice = 0;
-    console.log('getting price')
-      await getProductPrice(targetTags.ozon.baseUrl + product.url).then(res => {
+    //console.log(productList);
+    let productPrice = 0;
+    await getProductPrice(targetTags.ozon.baseUrl + 'https://www.ozon.ru/product/drel-shurupovert-patriot-br-189ues-akkumulyatornaya-li-ion-2-0-ach-21v-1400-ob-min-dlya-remonta-473058372/').then(res => {
         productPrice = res;
-        console.log('ProductPrice - ', productPrice);
-      }).catch(err => console.log(err));
-      if (!productPrice) {
-        console.log('Product price is empty, Can not get data from site');
-        return;
-      }
-      console.log('saving data');
-      await savePrice(product.id, productPrice).then(console.log('price added to database')).catch(err => console.log(err))
+            console.log('ProductPrice - ', productPrice);
+    }).catch(err => console.log(err));
+    // for (let product of productList) {
       
-    }
+    //   let productPrice = 0;
+    // console.log('getting price')
+    //   await getProductPrice(targetTags.ozon.baseUrl + product.url).then(res => {
+    //     productPrice = res;
+    //     console.log('ProductPrice - ', productPrice);
+    //   }).catch(err => console.log(err));
+    //   if (!productPrice) {
+    //     console.log('Product price is empty, Can not get data from site');
+    //     return;
+    //   }
+    //   console.log('saving data');
+    //   await savePrice(product.id, productPrice).then(console.log('price added to database')).catch(err => console.log(err))
+      
+    // }
   }
 app.use(logger);
 app.get('/', (req, res) => res.status(200).send('Home page'));
