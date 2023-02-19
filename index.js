@@ -3,7 +3,7 @@ var i = 0;
 const { getProductsList, getProductPrice } = require('./api/getData');
 const { savePrice } = require('./api/setData');
 const fetch = require("node-fetch");
-
+require('dotenv').config()
 var express = require('express');
 var app = express();
 var PORT = 3000;
@@ -38,6 +38,7 @@ app.get('/about', (req, res) => res.status(200).send('About page'));
 
 function hello() {
     console.log('hello node');
+    console.log(process.env.RAPIDAPI_KEY);
 }
 
 
