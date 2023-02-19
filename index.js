@@ -15,6 +15,8 @@ const targetTags =  {
   async function getList() {
     console.log('getting list');
     let productList = await getProductsList().then(res => res);
+    
+    console.log(productList);
     for (let product of productList) {
       
       let productPrice = 0;
@@ -43,8 +45,8 @@ function hello() {
 
 
 console.log('Server started');
-//getList();
-hello();
+getList();
+//hello();
 app.listen(PORT, function(err){
     if (err) console.log("Error in server setup")
     console.log("Server listening on Port", PORT);
