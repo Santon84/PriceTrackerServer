@@ -64,7 +64,7 @@ function logger(req, res, next) {
 }
 
 console.log('Server started');
-//hello();
+hello();
 
 getList();
 app.listen(PORT, function(err){
