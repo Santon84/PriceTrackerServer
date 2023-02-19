@@ -5,8 +5,10 @@ const { collection, getDocs } = require('firebase/firestore');
 require('dotenv').config()
 
 async function getProductsList() {
-
+    console.log('in product list');
+    console.log(db);
     const todoCollection = collection(db, 'products');
+    console.log(todoCollection);
     const toDoSnapshot = await getDocs(todoCollection);
     const products = toDoSnapshot.docs.map(doc => {
         return ({...doc.data(), id: doc.id})
