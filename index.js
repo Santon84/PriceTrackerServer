@@ -11,7 +11,6 @@ const targetTags =  {
     ozon : {baseUrl: 'https://www.ozon.ru/api/composer-api.bx/page/json/v2?url=', name: '', price: '' },
   }
 
-
   async function getList() {
     console.log('getting list');
     let productList = await getProductsList().then(res => res);
