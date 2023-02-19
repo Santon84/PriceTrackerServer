@@ -55,13 +55,13 @@ function logger(req, res, next) {
     console.log('new connection');
     console.log(req.originalUrl);
     console.log(req.ip);
-    hello();
+    getList();
     next();
 }
 
 console.log('Server started');
 //hello();
-getList();
+
 app.listen(PORT, function(err){
     if (err) console.log("Error in server setup")
     console.log("Server listening on Port", PORT);
