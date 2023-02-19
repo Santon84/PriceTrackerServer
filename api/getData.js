@@ -6,13 +6,17 @@ require('dotenv').config()
 
 async function getProductsList() {
     console.log('in product list');
-    console.log(db);
+    //console.log(db);
     const todoCollection = collection(db, 'products');
-    console.log(todoCollection);
+    //console.log(todoCollection);
+    console.log('Collection');
     const toDoSnapshot = await getDocs(todoCollection);
+    console.log('Snapshot');
+    console.log(toDoSnapshot);
     const products = toDoSnapshot.docs.map(doc => {
         return ({...doc.data(), id: doc.id})
     } );
+    console.log(products);
     return products;
     
 }
