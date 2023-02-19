@@ -41,7 +41,7 @@ function hello() {
     console.log('hello node');
     setTimeout(()=> {
         console.log('Timer hello')
-    }, 1000);
+    }, 3000);
     console.log(process.env.RAPIDAPI_KEY);
 }
 
@@ -55,7 +55,7 @@ function logger(req, res, next) {
 }
 
 console.log('Server started');
-//hello();
+hello();
 app.listen(PORT, function(err){
     if (err) console.log("Error in server setup")
     console.log("Server listening on Port", PORT);
