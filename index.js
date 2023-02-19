@@ -65,8 +65,9 @@ function logger(req, res, next) {
 
 console.log('Server started');
 hello();
+let timerId = setInterval(() => console.log('tick'), 2000);
 
-getList();
+//getList();
 app.listen(PORT, function(err){
     if (err) console.log("Error in server setup")
     console.log("Server listening on Port", PORT);
