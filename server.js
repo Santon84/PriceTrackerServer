@@ -1,5 +1,5 @@
 var i = 0;
-//var cron = require('node-cron');
+var cron = require('node-cron');
 const { getProductsList, getProductPrice } = require('./api/getData');
 const { savePrice } = require('./api/setData');
 const fetch = require("node-fetch");
@@ -65,8 +65,22 @@ function logger(req, res, next) {
 
 console.log('Server started');
 hello();
-let timerId = setInterval(() => console.log('tick'), 2000);
+//let timerId = setInterval(() => console.log('tick'), 2000);
 
+
+var task = cron.schedule('* * * * *', () =>  {
+  console.log('Day ' + i);
+  try {
+    getList();
+  }
+  catch(err) {
+    console.log('Problems with getting data from Firestore');
+    console.log(err);
+  }
+  i++;
+});
+
+task.start();
 //getList();
 app.listen(PORT, function(err){
     if (err) console.log("Error in server setup")
