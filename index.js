@@ -33,7 +33,7 @@ const targetTags =  {
       
     }
   }
-
+app.use(logger);
 app.get('/', (req, res) => res.status(200).send('Home page'));
 app.get('/about', (req, res) => res.status(200).send('About page'));
 
@@ -42,6 +42,13 @@ function hello() {
     console.log(process.env.RAPIDAPI_KEY);
 }
 
+
+function logger(req, res, next) {
+    console.log('new connection');
+    console.log(req.originalUrl);
+    console.log(req.ip);
+    next();
+}
 
 console.log('Server started');
 //hello();
